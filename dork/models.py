@@ -50,6 +50,7 @@ class Task(models.Model):
 	description = models.TextField()
 	status =  models.CharField(max_length=2,choices=STATUS_CHOICES, default=UNPLANNED)
 
+
 	class Meta(object):
 		verbose_name = ('TASK')
 		verbose_name_plural = ('TASK')
@@ -57,4 +58,23 @@ class Task(models.Model):
 
 	def __str__(self):
 		return '%s - %s' % (self.title, self.priority)
+
+
+class SubTask(models.Model):
+	title = models.CharField(max_length=50)
+	task = models.ForeignKey(Project, on_delete=models.CASCADE)
+	create_date = models.DateTimeField(auto_now=True, null=False, blank=False) 
+	description = models.TextField()
+	status =  models.BooleanField(default=False)
+	
+
+	class Meta(object):
+		verbose_name = ('SUBTASK')
+		verbose_name_plural = ('SUBTASKS')
+		app_label = 'dork'
+
+	def __str__(self):
+		return '%s - %s' % (self.title, self.status)
+
+
 
