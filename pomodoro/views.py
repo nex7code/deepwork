@@ -3,6 +3,8 @@ from django.views import generic
 from .models import Pomodoro
 
 class PomodoroTemplateView(generic.TemplateView):
-    model = Pomodoro
-    template_name = 'pomodoro/pomodoro_template_view.html'
+	model = Pomodoro
+	template_name = 'pomodoro/pomodoro_template_view.html'
+
+
 
