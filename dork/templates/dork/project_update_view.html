@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<form action="#" method="post">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+
+  <div class="form-group col-sm-2">
+    {{form.title.errors}}
+    <label for="{{form.title.id_for_label}}">Project Title </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{ form.title.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="Title"
+      {% if form.title.value %}
+        value="{{ form.title.value }}"
+        {% else %}
+          value="po po"
+          {% endif %}
+	    name="{{form.title.name}}"
+    >
+  </div>
+  <div class="form-group col-sm-2">
+    {{ form.priority.errors}}
+    <label for="{{form.priority.id_for_label}}">Priority </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{form.priority.id_for_label }}"
+	    aria-describedby="textHelp"
+	    
+      {% if form.priority.value %}
+        value="{{ form.priority.value }}"
+      {% else %}
+          placeholder="po po"
+      {% endif %}
+	    name="{{form.priority.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.color.errors}}
+    <label for="{{form.color.id_for_label}}">Color </label>
+    <input
+	    type="color"
+	    class="form-control"
+	    value="#563d7c"
+	    id="{{form.color.id_for_label }}"
+	    aria-describedby="textHelp"
+	    name="{{form.color.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.backgroud_image.errors}}
+    <label for="{{form.backgroud_image.id_for_label}}">backgroud_image </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{form.backgroud_image.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="backgroud_image"
+	    name="{{form.backgroud_image.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.create_date.errors}}
+    <label for="{{form.create_date.id_for_label}}">create_date </label>
+    <input
+	    type="datetime-local"
+	    class="form-control"
+	    id="{{form.create_date.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="create_date"
+	    name="{{form.create_date.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.start_time.errors}}
+    <label for="{{form.start_time.id_for_label}}">start_time </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{form.start_time.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="start_time"
+	    name="{{form.start_time.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.expected_end_time.errors}}
+    <label for="{{form.expected_end_time.id_for_label}}">expected_end_time </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{form.expected_end_time.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="expected_end_time"
+	    name="{{form.expected_end_time.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.real_end_time.errors}}
+    <label for="{{form.real_end_time.id_for_label}}">real_end_time </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{form.real_end_time.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="real_end_time"
+	    name="{{form.real_end_time.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.expected_total_time.errors}}
+    <label for="{{form.expected_total_time.id_for_label}}">expected_total_time </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{form.expected_total_time.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="expected_total_time"
+	    name="{{form.expected_total_time.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.real_total_time.errors}}
+    <label for="{{form.real_total_time.id_for_label}}">real_total_time </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{form.real_total_time.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="real_total_time"
+	    name="{{form.real_total_time.name }}"
+    >
+
+  </div>
+
+  <div class="form-group col-sm-2">
+    {{ form.description.errors}}
+    <label for="{{form.description.id_for_label}}">Description </label>
+    <input
+	    type="text"
+	    class="form-control"
+	    id="{{form.description.id_for_label }}"
+	    aria-describedby="textHelp"
+	    placeholder="Description"
+	    name="{{form.description.name }}"
+    >
+
+  </div>
+
+ 
+
+  </div>
+  <div class="form-group col-sm-2">
+    <button type="submit" class="btn btn-outline-primary btn-block">Save</button>
+  </div>
+</form>
+
+
+{% endblock content %}
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="https://webcast.intel.com/ramp/rmelib" 
+    href="https://webcast.intel.com/ramp/rmereceiver.jnlp">
+    <information>
+        <title>RME Receiver for Production</title>
+        <vendor>Ramp Holdings, Inc.</vendor>
+    </information>
+    <resources>
+        <!-- Application Resources -->
+        <j2se version="1.6+"
+              href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="hlsmulticast-v1.3-1440879083.jar" main="true" />
+        <jar href="commons-codec-1.9.jar" main="false" />
+        <jar href="commons-collections-3.2.2.jar" main="false" />
+        <jar href="commons-io-2.4.jar" main="false" />
+        <jar href="commons-logging-1.2.jar" main="false" />
+        <jar href="fluent-hc-4.4.jar" main="false" />
+        <jar href="httpclient-4.4.jar" main="false" />
+        <jar href="httpclient-cache-4.4.jar" main="false" />
+        <jar href="httpclient-win-4.4.jar" main="false" />
+        <jar href="httpcore-4.4.jar" main="false" />
+        <jar href="httpmime-4.4.jar" main="false" />
+        <jar href="jna-4.1.0.jar" main="false" />
+        <jar href="jna-platform-4.1.0.jar" main="false" />
+        <jar href="reedsolomon-1.0.jar" main="false" />
+
+    </resources>
+    <application-desc
+         name="HLSMulticastReceiver"
+         main-class= "HLSMulticastReceiver">
+      <argument>12345:10</argument>
+    </application-desc>
+    <update check="background"/>
+    <security><all-permissions/></security>
+    <propery name="java_arguments" value="-Djava.net.preferIPv4Stack=true" />
+</jnlp> 
+
+
+
+

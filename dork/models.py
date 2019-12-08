@@ -2,16 +2,16 @@ from django.db import models
 
 class Project(models.Model):
 	title = models.CharField(max_length=50)
-	priority = models.IntegerField()
-	color = models.CharField(max_length=100)
-	backgroud_image = models.ImageField()
+	priority = models.IntegerField(blank=True, null=True)
+	color = models.CharField(max_length=100,blank=True, null=True)
+	backgroud_image = models.ImageField(blank=True, null=True)
 	create_date = models.DateTimeField(auto_now=True, null=False, blank=False)
 	start_time = models.DateTimeField(auto_now=False, blank=True, null=True)
 	expected_end_time = models.DateTimeField(auto_now=False, blank=True, null=True)
 	real_end_time =  models.DateTimeField(auto_now=False, blank=True, null=True)
-	expected_total_time = models.IntegerField()
-	real_total_time = models.IntegerField()
-	description = models.TextField()
+	expected_total_time = models.IntegerField(blank=True, null=True)
+	real_total_time = models.IntegerField(blank=True, null=True)
+	description = models.TextField(blank=True, null=True)
 
 	class Meta(object):
 	    verbose_name = ('WORKBOARD')
@@ -38,16 +38,16 @@ class Task(models.Model):
 		]
 
 	title = models.CharField(max_length=50)
-	priority = models.IntegerField()
-	color = models.CharField(max_length=100)
-	project = models.ForeignKey(Project, on_delete=models.CASCADE)
+	priority = models.IntegerField(blank=True, null=True)
+	color = models.CharField(max_length=100,blank=True, null=True)
+	project = models.ForeignKey(Project,related_name='tasks', on_delete=models.CASCADE)
 	create_date = models.DateTimeField(auto_now=True, null=False, blank=False)
 	start_time = models.DateTimeField(auto_now=False, blank=True, null=True)
 	expected_end_time = models.DateTimeField(auto_now=False, blank=True, null=True)
 	real_end_time =  models.DateTimeField(auto_now=False, blank=True, null=True)
-	expected_total_time = models.IntegerField()
-	real_total_time = models.IntegerField()    
-	description = models.TextField()
+	expected_total_time = models.IntegerField(blank=True, null=True)
+	real_total_time = models.IntegerField(blank=True, null=True)    
+	description = models.TextField(blank=True, null=True)
 	status =  models.CharField(max_length=2,choices=STATUS_CHOICES, default=UNPLANNED)
 
 
@@ -64,7 +64,7 @@ class SubTask(models.Model):
 	title = models.CharField(max_length=50)
 	task = models.ForeignKey(Project, on_delete=models.CASCADE)
 	create_date = models.DateTimeField(auto_now=True, null=False, blank=False) 
-	description = models.TextField()
+	description = models.TextField(blank=True, null=True)
 	status =  models.BooleanField(default=False)
 	
 

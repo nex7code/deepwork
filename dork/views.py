@@ -1,6 +1,9 @@
 from django.shortcuts import render, render_to_response
+from django.urls import reverse_lazy
 from django.views import generic
-from .models import Project, Task, SubTask
+from dork.models import Project, Task, SubTask
+from dork.forms import ProjectCreateForm, TaskCreateForm, SubTaskCreateForm
+
 
 
 class ProjectListView(generic.ListView):
@@ -10,8 +13,10 @@ class ProjectListView(generic.ListView):
 
 class ProjectCreateView(generic.edit.CreateView):
 	model = Project
-	fields = '__all__'
+	# fields = '__all__'
+	form_class = ProjectCreateForm
 	template_name = 'dork/project_create_view.html'
+	success_url = reverse_lazy('project-list-view')
 
 
 class ProjectDetailView(generic.DetailView):
@@ -21,12 +26,17 @@ class ProjectDetailView(generic.DetailView):
 
 class ProjectUpdateView(generic.edit.UpdateView):
 	model = Project
-	template_name = 'dork/project_create_view.html'
+	# fields = '__all__'#('title',)
+	form_class = ProjectCreateForm
+	template_name = 'dork/project_update_view.html'
+	success_url = reverse_lazy('project-list-view')
 
 
 class ProjectDeleteView(generic.edit.DeleteView):
 	model = Project
-	template_name = 'dork/project_detail_view.html'
+	form_class = ProjectCreateForm
+	template_name = 'dork/project_delete_view.html'
+	success_url = reverse_lazy('project-list-view')
 
 
 # Task Views
@@ -38,8 +48,9 @@ class TaskListView(generic.ListView):
 
 class TaskCreateView(generic.edit.CreateView):
 	model = Task
-	fields = '__all__'
+	form_class = TaskCreateForm
 	template_name = 'dork/task_create_view.html'
+	success_url = reverse_lazy('task-list-view')
 
 
 class TaskDetailView(generic.DetailView):
@@ -49,9 +60,12 @@ class TaskDetailView(generic.DetailView):
 
 class TaskUpdateView(generic.edit.UpdateView):
 	model = Task
-	template_name = 'dork/task_create_view.html'
+	form_class = TaskCreateForm
+	template_name = 'dork/task_update_view.html'
+	success_url = reverse_lazy('task-list-view')
 
 
 class TaskDeleteView(generic.edit.DeleteView):
 	model = Task
-	template_name = 'dork/task_detail_view.html'
+	template_name = 'dork/task_delete_view.html'
+	success_url = reverse_lazy('task-list-view')

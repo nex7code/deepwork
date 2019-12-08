@@ -3,27 +3,27 @@ from .views import * #ProjectListView,ProjectCreateView, ProjectDetailView
 
 urlpatterns = [
                path(
-                   "workbook/",
+                   "workboard/",
                    ProjectListView.as_view(),
                    name="project-list-view",
                ),
                path(
-               		"workbook/add/",
+               		"workboard/add/",
                		ProjectCreateView.as_view(),
                		name='project-create-view',
                	),
                path(
-               		"workbook/detail/",
+               		"workboard/detail/",
                		ProjectCreateView.as_view(),
                		name='project-detail-view',
                	),
                path(
-               		"workbook/delete/",
-               		ProjectCreateView.as_view(),
+               		"workboard/delete/<int:pk>/",
+               		ProjectDeleteView.as_view(),
                		name='project-delete-view',
                	),
                path(
-               		"workbook/update/",
+               		"workboard/update/<int:pk>/",
                		ProjectUpdateView.as_view(),
                		name='project-update-view',
                	),
@@ -38,12 +38,17 @@ urlpatterns = [
                		name='task-detail-view',
                	),
                path(
-               		"task/update/",
+               		"task/add/",
+               		TaskCreateView.as_view(),
+               		name='task-create-view',
+               	),
+               path(
+               		"task/update/<int:pk>/",
                		TaskUpdateView.as_view(),
                		name='task-update-view',
                	),
                path(
-               		"task/delete/",
+               		"task/delete/<int:pk>/",
                		TaskDeleteView.as_view(),
                		name='task-delete-view',
                	),
