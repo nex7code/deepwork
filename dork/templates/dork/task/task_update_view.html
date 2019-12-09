@@ -11,24 +11,24 @@
     {{form.title.errors}}
     <label for="{{form.title.id_for_label}}">Task Name </label>
     <input
-	    type="text"
-	    class="form-control"
-	    id="{{ form.title.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="Title"
-	    name="{{form.title.name}}"
+      type="text"
+      class="form-control"
+      id="{{ form.title.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="Title"
+      name="{{form.title.name}}"
     >
   </div>
   <div class="form-group col-sm-8">
     {{ form.priority.errors}}
     <label for="{{form.priority.id_for_label}}">Priority </label>
     <input
-	    type="text"
-	    class="form-control"
-	    id="{{form.priority.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="priority"
-	    name="{{form.priority.name }}"
+      type="text"
+      class="form-control"
+      id="{{form.priority.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="priority"
+      name="{{form.priority.name }}"
     >
 
   </div>
@@ -37,41 +37,38 @@
     {{ form.color.errors}}
     <label for="{{form.color.id_for_label}}">Color </label>
     <input
-	    type="color"
-	    class="form-control"
-	    value="#563d7c"
-	    id="{{form.color.id_for_label }}"
-	    aria-describedby="textHelp"
-	    name="{{form.color.name }}"
+      type="color"
+      class="form-control"
+      value="#563d7c"
+      id="{{form.color.id_for_label }}"
+      aria-describedby="textHelp"
+      name="{{form.color.name }}"
     >
 
   </div>
 
   <div class="form-group col-sm-8">
     {{ form.project.errors}}
-    <label for="{{form.project.id_for_label}}">project </label>
-    <input
-	    type="text"
-	    class="form-control"
-	    id="{{form.project.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="project"
-      value="{{ project.tasks.value }}"
-	    name="{{form.project.name }}"
-    >
-
+    <div class="form-check">
+    <label class="mr-sm-2" for="inlineFormCustomSelect">Project</label>
+      <select name="project" required id="id_project" class="custom-select mb-2 mr-sm-2 mb-sm-0" >
+        {% for query in form.project.field.queryset %}
+        <option value="{{query.id }}">{{ query.title }}</option>
+        {% endfor %}
+      </select>
+  </div>
   </div>
 
   <div class="form-group col-sm-8">
     {{ form.create_date.errors}}
     <label for="{{form.create_date.id_for_label}}">create_date </label>
     <input
-	    type="datetime-local"
-	    class="form-control"
-	    id="{{form.create_date.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="create_date"
-	    name="{{form.create_date.name }}"
+      type="datetime-local"
+      class="form-control"
+      id="{{form.create_date.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="create_date"
+      name="{{form.create_date.name }}"
     >
 
   </div>
@@ -80,12 +77,12 @@
     {{ form.start_time.errors}}
     <label for="{{form.start_time.id_for_label}}">start_time </label>
     <input
-	    type="text"
-	    class="form-control"
-	    id="{{form.start_time.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="start_time"
-	    name="{{form.start_time.name }}"
+      type="text"
+      class="form-control"
+      id="{{form.start_time.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="start_time"
+      name="{{form.start_time.name }}"
     >
 
   </div>
@@ -94,12 +91,12 @@
     {{ form.expected_end_time.errors}}
     <label for="{{form.expected_end_time.id_for_label}}">expected_end_time </label>
     <input
-	    type="text"
-	    class="form-control"
-	    id="{{form.expected_end_time.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="expected_end_time"
-	    name="{{form.expected_end_time.name }}"
+      type="text"
+      class="form-control"
+      id="{{form.expected_end_time.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="expected_end_time"
+      name="{{form.expected_end_time.name }}"
     >
 
   </div>
@@ -108,12 +105,12 @@
     {{ form.real_end_time.errors}}
     <label for="{{form.real_end_time.id_for_label}}">real_end_time </label>
     <input
-	    type="text"
-	    class="form-control"
-	    id="{{form.real_end_time.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="real_end_time"
-	    name="{{form.real_end_time.name }}"
+      type="text"
+      class="form-control"
+      id="{{form.real_end_time.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="real_end_time"
+      name="{{form.real_end_time.name }}"
     >
 
   </div>
@@ -122,12 +119,12 @@
     {{ form.expected_total_time.errors}}
     <label for="{{form.expected_total_time.id_for_label}}">expected_total_time </label>
     <input
-	    type="text"
-	    class="form-control"
-	    id="{{form.expected_total_time.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="expected_total_time"
-	    name="{{form.expected_total_time.name }}"
+      type="text"
+      class="form-control"
+      id="{{form.expected_total_time.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="expected_total_time"
+      name="{{form.expected_total_time.name }}"
     >
 
   </div>
@@ -136,12 +133,12 @@
     {{ form.real_total_time.errors}}
     <label for="{{form.real_total_time.id_for_label}}">real_total_time </label>
     <input
-	    type="text"
-	    class="form-control"
-	    id="{{form.real_total_time.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="real_total_time"
-	    name="{{form.real_total_time.name }}"
+      type="text"
+      class="form-control"
+      id="{{form.real_total_time.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="real_total_time"
+      name="{{form.real_total_time.name }}"
     >
 
   </div>
@@ -150,12 +147,12 @@
     {{ form.description.errors}}
     <label for="{{form.description.id_for_label}}">Description </label>
     <input
-	    type="text"
-	    class="form-control"
-	    id="{{form.description.id_for_label }}"
-	    aria-describedby="textHelp"
-	    placeholder="Description"
-	    name="{{form.description.name }}"
+      type="text"
+      class="form-control"
+      id="{{form.description.id_for_label }}"
+      aria-describedby="textHelp"
+      placeholder="Description"
+      name="{{form.description.name }}"
     >
 
   </div>
@@ -171,6 +168,9 @@
       </select>
   </div>
 </div>
+
+
+
   <div class="form-group col-sm-8">
     <button type="submit" class="btn btn-outline-primary btn-block">Add</button>
   </div>

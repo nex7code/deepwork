@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    	<table class="table table-hover table-dark">
+    	  <thead>
+    	    <tr>
+    	      <th scope="col">#</th>
+    	      <th scope="col">WORKBOOK</th>
+              <th scope="col">TASK</th>
+    	      <th scope="col">EDIT</th>
+    	      <th scope="col">DELETE</th>
+    	    </tr>
+    	  </thead>
+    	  <tbody>
+    	  	{% for object in object_list %}
+    	    <tr>
+    	      <th scope="row">{{ forloop.counter }} </th>
+    	      <td>{{ object.project.title }}</td>
+              <td>{{ object.title }}</td>
+    	      <td><a href="{% url 'task-update-view' object.id %}">Edit</a></td>
+    	      <td><a href="{% url 'task-delete-view' object.id %}">Delete</a></td>
+    	    </tr>
+
+    	    {% endfor %}
+
+    	  </tbody>
+    	</table>
+    </div>
+
+{% endblock content %}
