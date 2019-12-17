@@ -16,6 +16,11 @@
       id="{{ form.title.id_for_label }}"
       aria-describedby="textHelp"
       placeholder="Title"
+      {% if form.title.value %}
+        value="{{ form.title.value }}"
+      {% else %}
+          value="po po"
+        {% endif %}
       name="{{form.title.name}}"
     >
   </div>

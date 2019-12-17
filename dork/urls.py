@@ -13,8 +13,8 @@ urlpatterns = [
                		name='project-create-view',
                	),
                path(
-               		"workboard/detail/",
-               		ProjectCreateView.as_view(),
+               		"workboard/detail/<int:pk>/",
+               		ProjectDetailView.as_view(),
                		name='project-detail-view',
                	),
                path(
@@ -33,7 +33,7 @@ urlpatterns = [
                		name='task-list-view',
                	),
                path(
-               		"task/detail/",
+               		"task/detail/<int:pk>/",
                		TaskDetailView.as_view(),
                		name='task-detail-view',
                	),

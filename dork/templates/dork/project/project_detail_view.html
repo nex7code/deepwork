@@ -1,15 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Pomodoro</title>
-</head>
-<body>
-    
-    <div class="container-fluid">
-    	{% for object in object_list %}
-    		<h3> {{ object.title }} </h3>
-    	{% endfor %}
-    </div>
+{% extends 'base.html' %}
 
-</body>
-</html>
+
+{% block content %}
+<style type="text/css">
+   body { background: {{ object.color }} !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+</style>
+    <div>
+    	<table class="table table-hover table-dark">
+    	  <thead>
+    	    <tr>
+    	      <th scope="col">#</th>
+    	      <th scope="col">VALUE</th>
+
+    	    </tr>
+    	  </thead>
+    	  <tbody>
+				<tr><td>Title</td><td>{{ object.title }}</td></tr>
+				<tr><td>Priority</td><td>{{ object.priority }}</td></tr>
+				<tr><td>Color</td><td>{{ object.color }}</td></tr>
+				<tr><td>Create_Date</td><td>{{ object.create_date }}</td></tr>
+				<tr><td>Start_Time</td><td>{{ object.start_time }}</td></tr>
+				<tr><td>Expected_End_Time</td><td>{{ object.expected_end_time }}</td></tr>
+				<tr><td>Real_End_Time</td><td>{{ object.real_end_time }}</td></tr>
+				<tr><td>Expected_Total_Time</td><td>{{ object.expected_total_time }}</td></tr>
+				<tr><td>Real_Total_Time</td><td>{{ object.real_total_time }}</td></tr>
+				<tr><td>Description</td><td>{{ object.description }}</td></tr>
+				<tr><td>Status</td><td>{{ object.status }}</td></tr>
+				<tr><th>TASKS</th>
+					<td><ul> 
+						{% for task in object.tasks.all %}
+								<li ><a href="{% url 'task-detail-view' task.id %}">{{ task.title }}</a></li>
+							{% endfor %}
+						</ul>
+						</td>
+
+    	  </tbody>
+	</table>
+	
+
+{% endblock content %}
+
