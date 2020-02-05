@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import dork from "./dork";
+import workboards from "./workboard";
 
 export default combineReducers({
-  dork
+  workboards
 });

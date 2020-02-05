@@ -1,14 +1,14 @@
 import axios from "axios";
 
-import { GET_DORKS } from "./types";
+import { GET_WORKBOARDS } from "./types";
 
-// GET DORKS
-export const getDorks = () => dispatch => {
+// GET WORKBOARDS
+export const getWorkboards = () => dispatch => {
   axios
     .get("/api/dork/")
     .then(res => {
       dispatch({
-        type: GET_DORKS,
+        type: GET_WORKBOARDS,
         payload: res.data
       });
     })

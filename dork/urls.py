@@ -1,6 +1,6 @@
 from rest_framework import routers
-from dork.api import ProjectViewSet
+from dork.api import WorkBoardViewSet
 
 router = routers.DefaultRouter()
-router.register("api/dork", ProjectViewSet, "ListView")
+router.register("api/dork", WorkBoardViewSet, "WorkBoardView")
 urlpatterns = router.urls

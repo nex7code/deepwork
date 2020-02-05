@@ -1,7 +1,7 @@
 from django.db import models
 
-
-class Project(models.Model):
+# WorkBoard is basically the project
+class WorkBoard(models.Model):
     title = models.CharField(max_length=50)
     priority = models.IntegerField(blank=True, null=True)
     color = models.CharField(max_length=100, blank=True, null=True)
@@ -39,7 +39,9 @@ class Task(models.Model):
     title = models.CharField(max_length=50)
     priority = models.IntegerField(blank=True, null=True)
     color = models.CharField(max_length=100, blank=True, null=True)
-    project = models.ForeignKey(Project, related_name="tasks", on_delete=models.CASCADE)
+    workboard = models.ForeignKey(
+        WorkBoard, related_name="tasks", on_delete=models.CASCADE
+    )
     create_date = models.DateTimeField(auto_now=True, null=False, blank=False)
     start_time = models.DateTimeField(auto_now=False, blank=True, null=True)
     expected_end_time = models.DateTimeField(auto_now=False, blank=True, null=True)
@@ -60,7 +62,7 @@ class Task(models.Model):
 
 class SubTask(models.Model):
     title = models.CharField(max_length=50)
-    task = models.ForeignKey(Project, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
     create_date = models.DateTimeField(auto_now=True, null=False, blank=False)
     description = models.TextField(blank=True, null=True)
     status = models.BooleanField(default=False)

@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from dork.models import Project
+from dork.models import WorkBoard
 
 
-class ProjectSerializer(serializers.ModelSerializer):
+class WorkBoardSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Project
+        model = WorkBoard
         fields = "__all__"
 
     #    fields = ['title', 'priority', 'color', 'backgroud_image', 'create_date',

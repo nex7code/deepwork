@@ -1,15 +1,15 @@
-import { GET_DORKS } from "../actions/types";
+import { GET_WORKBOARDS } from "../actions/types";
 
 const initialState = {
-  dorks: []
+  workboards: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_DORKS:
+    case GET_WORKBOARDS:
       return {
         ...state,
-        dorks: action.payload
+        workboards: action.payload
       };
     default:
       return state;

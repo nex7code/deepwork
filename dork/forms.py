@@ -1,22 +1,20 @@
 from django import forms
-from dork.models import Project, Task, SubTask
+from dork.models import WorkBoard, Task, SubTask
 
-class ProjectCreateForm(forms.ModelForm):
 
+class WorkBoardCreateForm(forms.ModelForm):
     class Meta:
-        model = Project
-        fields = '__all__'
+        model = WorkBoard
+        fields = "__all__"
 
 
 class TaskCreateForm(forms.ModelForm):
-
     class Meta:
         model = Task
-        fields = '__all__'
+        fields = "__all__"
 
 
 class SubTaskCreateForm(forms.ModelForm):
-
     class Meta:
         model = SubTask
-        fields = '__all__'
+        fields = "__all__"

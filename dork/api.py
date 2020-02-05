@@ -1,10 +1,10 @@
 from rest_framework import status, permissions, viewsets
-from dork.models import Project
-from dork.serializers import ProjectSerializer
+from dork.models import WorkBoard
+from dork.serializers import WorkBoardSerializer
 
 
-class ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
+class WorkBoardViewSet(viewsets.ModelViewSet):
+    queryset = WorkBoard.objects.all()
+    serializer_class = WorkBoardSerializer
     permission_classes = [permissions.AllowAny]
 

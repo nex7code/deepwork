@@ -1,1 +1,1 @@
-export const GET_DORKS = "GET_DORKS";
+export const GET_WORKBOARDS = "GET_WORKBOARDS";
