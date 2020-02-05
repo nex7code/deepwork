@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 MY_APPS =[
     'pomodoro',
     'dork',
+    'frontend',
 ]
 
 INSTALLED_APPS = INSTALLED_APPS + MY_APPS
