@@ -1,7 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # WorkBoard is basically the project
 class WorkBoard(models.Model):
+    owner = models.ForeignKey(
+        User, related_name="workboards", on_delete=models.CASCADE, null=True
+    )
     title = models.CharField(max_length=50)
     priority = models.IntegerField(blank=True, null=True)
     color = models.CharField(max_length=100, blank=True, null=True)

@@ -4,7 +4,11 @@ from dork.serializers import WorkBoardSerializer
 
 
 class WorkBoardViewSet(viewsets.ModelViewSet):
-    queryset = WorkBoard.objects.all()
     serializer_class = WorkBoardSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+        return self.request.user.workboards.all()
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
