@@ -1,6 +1,7 @@
 static/
 .vscode/
 node_modules
+.babelrc
 
 ### Django ###
 *.log
