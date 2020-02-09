@@ -14,7 +14,7 @@ export class Form extends Component {
     addWorkboard: PropTypes.func.isRequired
   };
 
-  onChange = e => this.setState({ [e.target.title]: e.target.value });
+  onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   onSubmit = e => {
     e.preventDefault();
@@ -48,7 +48,7 @@ export class Form extends Component {
             <label>Priority</label>
             <input
               className="form-control"
-              type="priority"
+              type="text"
               name="priority"
               onChange={this.onChange}
               value={priority}

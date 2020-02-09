@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getWorkboards, deleteWorkboard } from "../../actions/workboards";
-// import workboard from "../../reducers/workboard";
+// import workboards from "../../reducers/workboard";
 
 export class Workboards extends Component {
   static propTypes = {
