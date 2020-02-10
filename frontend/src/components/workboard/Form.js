@@ -7,7 +7,7 @@ export class Form extends Component {
   state = {
     title: "",
     priority: "",
-    create_date: ""
+    description: ""
   };
 
   static propTypes = {
@@ -18,18 +18,18 @@ export class Form extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    const { title, priority, create_date } = this.state;
-    const workboards = { title, priority, create_date };
+    const { title, priority, description } = this.state;
+    const workboards = { title, priority, description };
     this.props.addWorkboard(workboards);
     this.setState({
       title: "",
       priority: "",
-      create_date: ""
+      description: ""
     });
   };
 
   render() {
-    const { title, priority, create_date } = this.state;
+    const { title, priority, description } = this.state;
     return (
       <div className="card card-body mt-4 mb-4">
         <h2>Add Workboards</h2>
@@ -55,13 +55,13 @@ export class Form extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Created</label>
+            <label>Description</label>
             <textarea
               className="form-control"
               type="text"
-              name="create_date"
+              name="description"
               onChange={this.onChange}
-              value={create_date}
+              value={description}
             />
           </div>
           <div className="form-group">
