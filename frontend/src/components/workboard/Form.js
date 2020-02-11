@@ -32,42 +32,49 @@ export class Form extends Component {
     const { title, priority, description } = this.state;
     return (
       <div className="card card-body mt-4 mb-4">
-        <h2>Add Workboards</h2>
-        <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label>Title</label>
+        {/* <h2>Add Workboards</h2> */}
+        <form onSubmit={this.onSubmit} className="form-row">
+          <div className="col col-md-4">
+            {/* <label>Title</label> */}
             <input
               className="form-control"
               type="text"
               name="title"
               onChange={this.onChange}
               value={title}
+              placeholder="Title"
             />
           </div>
-          <div className="form-group">
-            <label>Priority</label>
+          <div className="col col-md-4">
+            {/* <label>Priority</label> */}
             <input
-              className="form-control"
-              type="text"
+              className="form-control-range"
+              type="range"
               name="priority"
               onChange={this.onChange}
               value={priority}
+              // placeholder="Priority"
             />
           </div>
-          <div className="form-group">
-            <label>Description</label>
-            <textarea
+          <div className="col col-md-4">
+            {/* <label>Description</label> */}
+            <input
               className="form-control"
               type="text"
               name="description"
               onChange={this.onChange}
               value={description}
+              placeholder="Description"
             />
           </div>
-          <div className="form-group">
-            <button type="submit" className="btn btn-primary">
+          <div className="col">
+            <input
+              button
+              type="submit"
+              className="btn btn-primary"
               Submit
-            </button>
+              hidden
+            />
           </div>
         </form>
       </div>

@@ -25,7 +25,7 @@ export class Workboards extends Component {
               <th>ID</th>
               <th>Title</th>
               <th>Priority</th>
-              <th>Date</th>
+              <th>Description</th>
               <th />
             </tr>
           </thead>
@@ -35,7 +35,7 @@ export class Workboards extends Component {
                 <td>{workboard.id}</td>
                 <td>{workboard.title}</td>
                 <td>{workboard.priority}</td>
-                <td>{workboard.create_date}</td>
+                <td>{workboard.description}</td>
                 <td>
                   <button
                     onClick={this.props.deleteWorkboard.bind(
